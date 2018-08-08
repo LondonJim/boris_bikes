@@ -8,7 +8,7 @@ describe DockingStation do
     expect(subject).to respond_to :release_bike
     end
 
-    it 'creates a new object of the .bike class when #release_bike is called against it' do 
+    it 'creates a new object of the .bike class when #release_bike is called on it' do 
     expect(subject.release_bike.working?).to eq true
     end
 
