@@ -1,22 +1,18 @@
 class DockingStation 
-    
 
-    # def release_bike
-    #     if @bikes == nil
-    #         raise
-    #     else
-    #         @bikes
-    #     end
-    # end
+    def initialize
+        @bikes = []
+    end
 
     def release_bike
-        fail 'No bikes available' unless @bikes
-        @bikes
+        raise 'No bikes available' if @bikes.empty?
+        @bikes.pop
     end
 
 
     def dock(bike_to_be_docked)
-        @bikes = bike_to_be_docked
+        raise 'docking station is full' if @bikes.count >= 20
+        @bikes << bike_to_be_docked
     end
 
 
