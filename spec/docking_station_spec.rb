@@ -3,6 +3,15 @@ require 'bike'
 
 describe DockingStation do
 
+    it 'initializes witha default capacity of 20' do
+        expect(subject.capacity).to eq 20
+    end
+
+    it 'allows variable capacity to be set on initialization' do 
+        ds1 = DockingStation.new(30)
+        expect(ds1.capacity).to eq 30
+    end
+
     it { is_expected.to respond_to(:release_bike) }
 
     it 'responds to #release_bike' do
@@ -48,5 +57,6 @@ describe DockingStation do
 
         expect {station.dock(Bike.new)}.to raise_error 'docking station is full'
     end
+
 
 end
