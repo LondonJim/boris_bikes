@@ -5,21 +5,19 @@ describe DockingStation do
 
     it { is_expected.to respond_to(:release_bike) }
 
-    it 'responds to #release_bike' do 
+    it 'responds to #release_bike' do
     expect(subject).to respond_to :release_bike
     end
 
-
-    # the below test is from the walkthrough - maybe a nicer way of writing the above test? 
+    # the below test is from the walkthrough - maybe a nicer way of writing the above test?
     it 'releases working bikes' do
         bike = Bike.new
         subject.dock(bike)
         expect(subject.release_bike).to eq bike
     end
 
-
-    it "#dock method takes an argument" do 
-        is_expected.to respond_to(:dock).with(1).argument 
+    it "#dock method takes an argument" do
+        is_expected.to respond_to(:dock).with(1).argument
     end
 
     it { is_expected.to respond_to(:bikes) }
@@ -37,7 +35,6 @@ describe DockingStation do
         expect(station.bikes[-1]).to eq(bike2)
     end
 
-
     it "#release_bikes fails if docking station holds no bike" do
         # if subject.bikes == nil
         expect { subject.release_bike }.to raise_error 'No bikes available'
@@ -45,7 +42,7 @@ describe DockingStation do
 
     it "#dock will return error if the docking station already has 20 bikes" do
         # creating 20 bikes, then attempting to insert a 21st. Should raise an error
-        
+
         station = DockingStation.new
         20.times { station.dock(Bike.new) }
 
